@@ -1,7 +1,7 @@
 # TP_WebSockets
 		Los nombres de los alumnos que realizaron el trabajo.
       - Ivan Weiss Van Der Pol
-      - Guillermo José Paiva Galeanos
+      - Guillermo José Paiva Galeano
 		Documento de resumen de investigación de WebSocket.
       -https://www.youtube.com/watch?v=8ARodQ4Wlf4
       -https://datatracker.ietf.org/doc/html/rfc6455
