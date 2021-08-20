@@ -39,6 +39,9 @@ io.on('connection', async function (socket) {
 
         try {
             let response
+            socket.emit('bienvenido', {
+                bienvenido: `Bienvenido ${data.id}`
+            })
 
             switch ( tipo_operacion ) {
                 case 1:
