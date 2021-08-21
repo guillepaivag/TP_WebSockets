@@ -14,7 +14,7 @@ const ResponseServer = require('./model/ResponseServer')
 // WebSockets
 const io = SocketIO(server, {
     cors: {
-        origin: ["http://localhost:8080", 'http://localhost:1605'],
+        origin: ["http://localhost:8080", 'http://localhost:1605', 'https://websocketscamasuti.web.app'],
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -29,7 +29,7 @@ io.on('connection', async function (socket) {
 
     // Operaciones solicitadas
 
-    socket.on('operacion', async (data) => {
+    socket.on('operacion', async ( data ) => {
         
         const { tipo_operacion, datos } = data
             

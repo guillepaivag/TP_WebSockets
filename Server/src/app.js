@@ -16,7 +16,7 @@ app.use(express.urlencoded({
 
 app.use(cors(function (req, callback) {
   var corsOptions;
-  let allowlist = ['http://localhost:8080', 'http://localhost:1605']
+  let allowlist = ['http://localhost:8080', 'http://localhost:1605', 'https://websocketscamasuti.web.app']
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
   } else {
