@@ -51,22 +51,22 @@ io.on('connection', async function (socket) {
 
                 case 2:
                     response = await crear_cama( uidHospital )
-                    socket.emit('responseServer_crearCama', response)
+                    socket.emit('responseServer_camaCreada', response)
                     break;
 
                 case 3:
                     response = await eliminar_cama( uidHospital, uidCamaUTI )
-                    socket.emit('responseServer_eliminarCama', response)
+                    socket.emit('responseServer_camaEliminada', response)
                     break;
 
                 case 4:
                     response = await ocupar_cama( uidHospital, uidCamaUTI )
-                    socket.emit('responseServer_ocuparCama', response)
+                    socket.emit('responseServer_camaOcupada', response)
                     break;
 
                 case 5:
                     response = await desocupar_cama( uidHospital, uidCamaUTI )
-                    socket.emit('responseServer_desocuparCama', response)
+                    socket.emit('responseServer_camaDesocupada', response)
                     break;
 
                 case 6: 
@@ -76,7 +76,7 @@ io.on('connection', async function (socket) {
 
                 case 7: 
                     response = await listaCamasPorHospital ( uidHospital )
-                    socket.emit('responseServer_problemSystem', response)
+                    socket.emit('responseServer_listaCamas', response)
                     break;
 
                 default:
