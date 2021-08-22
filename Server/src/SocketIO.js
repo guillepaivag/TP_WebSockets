@@ -46,43 +46,78 @@ io.on('connection', async function (socket) {
             })
 
             switch ( tipo_operacion ) {
-                case 1:
+                case 1:              
                     response = await ver_estado()
+                    console.log('response', response)
+
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
+
                     socket.emit('responseServer_verEstado', response)
                     break;
 
                 case 2:
                     response = await crear_cama( uidHospital )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_camaCreada', response)
                     break;
 
                 case 3:
                     response = await eliminar_cama( uidHospital, uidCamaUTI )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_camaEliminada', response)
                     break;
 
                 case 4:
                     response = await ocupar_cama( uidHospital, uidCamaUTI )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_camaOcupada', response)
                     break;
 
                 case 5:
                     response = await desocupar_cama( uidHospital, uidCamaUTI )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_camaDesocupada', response)
                     break;
 
                 case 6: 
                     response = await listaHospitales()
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_listaHospitales', response)
                     break;
 
                 case 7: 
                     response = await listaCamasPorHospital ( uidHospital )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_listaCamas', response)
                     break;
 
                 case 8: 
                     response = await datosCamaUTI ( uidHospital, uidCamaUTI )
+                    if (response.estado === -1) {
+                        socket.emit('responseServer_problemSystem', response)
+                        return
+                    }
                     socket.emit('responseServer_datosCama', response)
                     break;
 
@@ -93,7 +128,6 @@ io.on('connection', async function (socket) {
                         tipo_operacion,
                         respuesta: null
                     }).getResponseServer()
-                    console.log('responseServer_problemSystem', response)
                     socket.emit('responseServer_problemSystem', response)
                     
                     break;
@@ -106,7 +140,7 @@ io.on('connection', async function (socket) {
                 tipo_operacion,
                 respuesta: error
             }).getResponseServer()
-            console.log('responseServer_problemSystem', response)
+            
             socket.emit('responseServer_problemSystem', response)
         }
 

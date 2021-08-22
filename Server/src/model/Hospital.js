@@ -126,6 +126,7 @@ class Hospital {
     }
 
     async crearCamaNueva () {
+        const hospitalRef = db.collection("Hospitales").doc(this.idNumero)
         const camaNueva = new CamaUTI()
 
         const camaID = (await db.collection("Hospitales").doc(this.idNumero).collection("CamasUTI").add({
@@ -135,6 +136,11 @@ class Hospital {
 
         await db.collection("Hospitales").doc(this.idNumero).collection("CamasUTI").doc(camaID).update({
             camaID
+        })
+
+        const hospitalData = (await hospitalRef.get()).data()
+        await hospitalRef.update({
+            cantidadCamas: hospitalData.cantidadCamas + 1
         })
 
         camaNueva.setCamaID(camaID)
@@ -148,7 +154,11 @@ class Hospital {
 
         const cama = new CamaUTI( camaID )
 
-        await cama.eliminarCama ( this.idNumero )
+        const realizado = await cama.eliminarCama ( this.idNumero )
+
+        if ( !realizado ) {
+            return null
+        }
 
         const indexDelete = this.lista_de_camas.findIndex((cama) => cama.camaID === camaID)
         
@@ -163,7 +173,11 @@ class Hospital {
 
         const cama = new CamaUTI( camaID )
 
-        await cama.ocuparCama( this.idNumero )
+        const realizado = await cama.ocuparCama( this.idNumero )
+
+        if ( !realizado ) {
+            return null
+        }
 
         const indexUpdate = this.lista_de_camas.findIndex((cama) => cama.camaID === camaID)
 
@@ -178,7 +192,11 @@ class Hospital {
         
         const cama = new CamaUTI(camaID)
 
-        await cama.desocuparCama( this.idNumero )
+        const realizado = await cama.desocuparCama( this.idNumero )
+
+        if ( !realizado ) {
+            return null
+        }
 
         const indexUpdate = this.lista_de_camas.findIndex((cama) => cama.camaID === camaID)
 

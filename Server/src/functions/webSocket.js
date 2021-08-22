@@ -12,7 +12,7 @@ functionsWebSocket.ver_estado = async () => {
     // Se obtiene todos los datos de cada hospital
     const estadoHospital = await Hospital.verEstadoDeTodosLosHospitales()
 
-    // Registro de actividad
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad( null, null, tipoOperacion.estadoActualHospitales )
     // await registroActividad.guardarRegistroActividad()
 
@@ -35,7 +35,7 @@ functionsWebSocket.crear_cama = async ( uidHospital ) => {
 
     const cama = await hospital.crearCamaNueva()
 
-    // Registro de actividad
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.crearCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
@@ -59,9 +59,25 @@ functionsWebSocket.eliminar_cama = async ( uidHospital, uidCamaUTI ) => {
     
     hospital = await hospital.importarDatosHospital(uidHospital)
 
-    const cama = await hospital.eliminarCama( uidCamaUTI ) 
+    const cama = await hospital.eliminarCama( uidCamaUTI )
 
-    // Registro de actividad
+    if ( !cama ) {
+        // // Registro de actividad
+        // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
+        // await registroActividad.guardarRegistroActividad()
+
+        // Respuesta del servidor
+        const response = new ResponseServer({
+            estado: -1,
+            mensaje: `No se puede eliminar una cama ocupada`,
+            tipo_operacion: 3,
+            respuesta: null
+        })
+
+        return response.getResponseServer()
+    }
+
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
@@ -87,7 +103,24 @@ functionsWebSocket.ocupar_cama = async ( uidHospital, uidCamaUTI ) => {
 
     const cama = await hospital.ocuparCama( uidCamaUTI )
 
-    // Registro de actividad
+    console.log('cama', !cama)
+    if ( !cama ) {
+        // // Registro de actividad
+        // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
+        // await registroActividad.guardarRegistroActividad()
+
+        // Respuesta del servidor
+        const response = new ResponseServer({
+            estado: -1,
+            mensaje: `No se puede ocupar una cama ocupada`,
+            tipo_operacion: 4,
+            respuesta: null
+        })
+
+        return response.getResponseServer()
+    }
+
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.ocuparCamaUTI )
     // await registroActividad.guardarRegistroActividad()
     
@@ -113,7 +146,23 @@ functionsWebSocket.desocupar_cama = async ( uidHospital, uidCamaUTI ) => {
 
     const cama = await hospital.desocuparCama( uidCamaUTI )
 
-    // Registro de actividad
+    if ( !cama ) {
+        // // Registro de actividad
+        // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
+        // await registroActividad.guardarRegistroActividad()
+
+        // Respuesta del servidor
+        const response = new ResponseServer({
+            estado: -1,
+            mensaje: `No se puede desocupar una cama desocupada`,
+            tipo_operacion: 5,
+            respuesta: null
+        })
+
+        return response.getResponseServer()
+    }
+
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.desocuparCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
@@ -137,7 +186,7 @@ functionsWebSocket.listaHospitales = async (  ) => {
     // Se obtiene la lista de hospitales
     const hospitales = await Hospital.listaHospital()
 
-    // Registro de actividad
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(null, null, tipoOperacion.desocuparCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
@@ -156,7 +205,7 @@ functionsWebSocket.listaCamasPorHospital = async ( uidHospital ) => {
     // Se obtiene la lista de camas por hospitales
     const camas = await Hospital.listaCamasPorHospital( uidHospital )
 
-    // Registro de actividad
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.desocuparCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
@@ -176,7 +225,7 @@ functionsWebSocket.datosCamaUTI = async ( uidHospital, uidCamaUTI ) => {
     const cama = new CamaUTI()
     await cama.importarDatosDeCamaUTI(uidHospital, uidCamaUTI)
 
-    // Registro de actividad
+    // // Registro de actividad
     // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.desocuparCamaUTI )
     // await registroActividad.guardarRegistroActividad()
 
