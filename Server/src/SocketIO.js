@@ -7,7 +7,8 @@ const {
     ocupar_cama,
     desocupar_cama,
     listaHospitales,
-    listaCamasPorHospital
+    listaCamasPorHospital,
+    datosCamaUTI
 } = require('./functions/webSocket')
 const ResponseServer = require('./model/ResponseServer')
 
@@ -35,8 +36,9 @@ io.on('connection', async function (socket) {
             
         if ( datos ) {
             var { uidHospital, uidCamaUTI } = datos
+            uidHospital = String(uidHospital)
         }
-
+        
         try {
             let response
             socket.emit('bienvenido', {
@@ -79,6 +81,11 @@ io.on('connection', async function (socket) {
                     socket.emit('responseServer_listaCamas', response)
                     break;
 
+                case 8: 
+                    response = await datosCamaUTI ( uidHospital, uidCamaUTI )
+                    socket.emit('responseServer_datosCama', response)
+                    break;
+
                 default:
                     response = new ResponseServer({
                         estado: -1,
@@ -86,7 +93,7 @@ io.on('connection', async function (socket) {
                         tipo_operacion,
                         respuesta: null
                     }).getResponseServer()
-                    
+                    console.log('responseServer_problemSystem', response)
                     socket.emit('responseServer_problemSystem', response)
                     
                     break;
@@ -99,7 +106,7 @@ io.on('connection', async function (socket) {
                 tipo_operacion,
                 respuesta: error
             }).getResponseServer()
-
+            console.log('responseServer_problemSystem', response)
             socket.emit('responseServer_problemSystem', response)
         }
 

@@ -215,7 +215,7 @@ class Hospital {
         const hospitalesDocs = await db.collection("Hospitales").get()
 
         if (hospitalesDocs.empty) {
-            return null
+            return []
         }
 
         hospitalesDocs.forEach(hospital => {
@@ -230,7 +230,7 @@ class Hospital {
         const camasDocs = await db.collection("Hospitales").doc(uidHospital).collection('CamasUTI').get()
 
         if (camasDocs.empty) {
-            return null
+            return []
         }
 
         camasDocs.forEach(cama => {

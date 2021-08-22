@@ -1,4 +1,4 @@
-const environmentProd = true
+const environmentProd = false
 
 const environment = environmentProd ? 'production' : 'development'
 

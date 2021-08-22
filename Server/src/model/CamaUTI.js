@@ -30,6 +30,19 @@ class CamaUTI {
 
     /* ACTIONS */
 
+    async importarDatosDeCamaUTI (hospitalID, camaID) {
+        const camaDoc = await db.collection("Hospitales").doc(hospitalID).collection("CamasUTI").doc(camaID).get()
+
+        if (!camaDoc.exists) {
+            return null
+        }
+
+        this.setCamaID(camaDoc.data().camaID)
+        this.setEstado(camaDoc.data().estado)
+
+        return this
+    }
+
     //Eliminar Cama UTI 
     async eliminarCama (hospitalID) {
         await db.collection("Hospitales").doc(hospitalID).collection("CamasUTI").doc(this.camaID).delete()

@@ -1,3 +1,4 @@
+const CamaUTI = require("../model/CamaUTI")
 const Hospital = require("../model/Hospital")
 const RegistroActividad = require('../model/RegistroActividad')
 const ResponseServer = require("../model/ResponseServer")
@@ -12,13 +13,13 @@ functionsWebSocket.ver_estado = async () => {
     const estadoHospital = await Hospital.verEstadoDeTodosLosHospitales()
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad( null, null, tipoOperacion.estadoActualHospitales )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad( null, null, tipoOperacion.estadoActualHospitales )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: 'Estado de todos los hospitales enviado con exito.',
+        mensaje: `ok`,
         tipo_operacion: 1,
         respuesta: estadoHospital
     })
@@ -35,15 +36,18 @@ functionsWebSocket.crear_cama = async ( uidHospital ) => {
     const cama = await hospital.crearCamaNueva()
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.crearCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.crearCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `¡Se agrego una cama para el hospital ${uidHospital}!`,
+        mensaje: `ok`,
         tipo_operacion: 2,
-        respuesta: cama
+        respuesta: {
+            uidHospital,
+            cama
+        }
     })
 
     return response.getResponseServer()
@@ -58,15 +62,18 @@ functionsWebSocket.eliminar_cama = async ( uidHospital, uidCamaUTI ) => {
     const cama = await hospital.eliminarCama( uidCamaUTI ) 
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.eliminarCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `¡Se elimino la cama ${uidCamaUTI} del hospital ${uidHospital}!`,
+        mensaje: `ok`,
         tipo_operacion: 3,
-        respuesta: cama
+        respuesta: {
+            uidHospital,
+            cama
+        }
     })
 
     return response.getResponseServer()
@@ -81,15 +88,18 @@ functionsWebSocket.ocupar_cama = async ( uidHospital, uidCamaUTI ) => {
     const cama = await hospital.ocuparCama( uidCamaUTI )
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.ocuparCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.ocuparCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
     
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `¡Se ocupo la cama ${uidCamaUTI} del hospital ${uidHospital}!`,
+        mensaje: `ok`,
         tipo_operacion: 4,
-        respuesta: cama
+        respuesta: {
+            uidHospital,
+            cama
+        }
     })
 
     return response.getResponseServer()
@@ -104,15 +114,18 @@ functionsWebSocket.desocupar_cama = async ( uidHospital, uidCamaUTI ) => {
     const cama = await hospital.desocuparCama( uidCamaUTI )
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.desocuparCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.desocuparCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `¡Se desocupo la cama ${uidCamaUTI} del hospital ${uidHospital}!`,
+        mensaje: `ok`,
         tipo_operacion: 5,
-        respuesta: cama
+        respuesta: {
+            uidHospital,
+            cama
+        }
     })
 
     return response.getResponseServer()
@@ -125,13 +138,13 @@ functionsWebSocket.listaHospitales = async (  ) => {
     const hospitales = await Hospital.listaHospital()
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(null, null, tipoOperacion.desocuparCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(null, null, tipoOperacion.desocuparCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `Se obtuvo la lista de hospitales de forma correcta.`,
+        mensaje: `ok`,
         tipo_operacion: 6,
         respuesta: hospitales
     })
@@ -144,15 +157,38 @@ functionsWebSocket.listaCamasPorHospital = async ( uidHospital ) => {
     const camas = await Hospital.listaCamasPorHospital( uidHospital )
 
     // Registro de actividad
-    const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.desocuparCamaUTI )
-    await registroActividad.guardarRegistroActividad()
+    // const registroActividad = new RegistroActividad(uidHospital, null, tipoOperacion.desocuparCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
 
     // Respuesta del servidor
     const response = new ResponseServer({
         estado: 0,
-        mensaje: `Se obtuvo la lista de camas del hospital ${uidHospital} de forma correcta.`,
+        mensaje: `ok`,
         tipo_operacion: 7,
         respuesta: camas
+    })
+
+    return response.getResponseServer()
+}
+
+functionsWebSocket.datosCamaUTI = async ( uidHospital, uidCamaUTI ) => {
+    // 
+    const cama = new CamaUTI()
+    await cama.importarDatosDeCamaUTI(uidHospital, uidCamaUTI)
+
+    // Registro de actividad
+    // const registroActividad = new RegistroActividad(uidHospital, uidCamaUTI, tipoOperacion.desocuparCamaUTI )
+    // await registroActividad.guardarRegistroActividad()
+
+    // Respuesta del servidor
+    const response = new ResponseServer({
+        estado: 0,
+        mensaje: `ok`,
+        tipo_operacion: 8,
+        respuesta: {
+            uidHospital,
+            cama
+        }
     })
 
     return response.getResponseServer()
