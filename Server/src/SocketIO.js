@@ -15,7 +15,7 @@ const ResponseServer = require('./model/ResponseServer')
 // WebSockets
 const io = SocketIO(server, {
     cors: {
-        origin: ["http://localhost:8080", 'http://localhost:1605', 'https://websocketscamasuti.web.app'],
+        origin: ['https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com'],
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -50,7 +50,7 @@ io.on('connection', async function (socket) {
                     response = await ver_estado()
                     console.log('response', response)
 
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -60,7 +60,7 @@ io.on('connection', async function (socket) {
 
                 case 2:
                     response = await crear_cama( uidHospital )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -69,7 +69,7 @@ io.on('connection', async function (socket) {
 
                 case 3:
                     response = await eliminar_cama( uidHospital, uidCamaUTI )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -78,7 +78,7 @@ io.on('connection', async function (socket) {
 
                 case 4:
                     response = await ocupar_cama( uidHospital, uidCamaUTI )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -87,7 +87,7 @@ io.on('connection', async function (socket) {
 
                 case 5:
                     response = await desocupar_cama( uidHospital, uidCamaUTI )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -96,7 +96,7 @@ io.on('connection', async function (socket) {
 
                 case 6: 
                     response = await listaHospitales()
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -105,7 +105,7 @@ io.on('connection', async function (socket) {
 
                 case 7: 
                     response = await listaCamasPorHospital ( uidHospital )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
@@ -114,7 +114,7 @@ io.on('connection', async function (socket) {
 
                 case 8: 
                     response = await datosCamaUTI ( uidHospital, uidCamaUTI )
-                    if (response.estado === -1) {
+                    if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
                     }
