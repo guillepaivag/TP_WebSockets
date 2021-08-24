@@ -15,7 +15,7 @@ const ResponseServer = require('./model/ResponseServer')
 // WebSockets
 const io = SocketIO(server, {
     cors: {
-        origin: ['https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com'],
+        origin: ['https://websocketscamasuti.firebaseapp.com', 'https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com'],
         methods: ["GET", "POST"],
         credentials: true
     }
