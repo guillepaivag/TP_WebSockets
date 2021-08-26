@@ -62,8 +62,6 @@ io.on('connection', async function (socket) {
             switch ( tipo_operacion ) {
                 case 1:              
                     response = await ver_estado()
-                    console.log('response', response)
-
                     if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
