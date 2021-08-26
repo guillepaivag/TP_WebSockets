@@ -5,10 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "toPublic": " xcopy \"dist\\\" \"..\\Server\\src\\public\\\" /E /Y",
-    "buildToProduction": "npm run build && npm run toPublic",
     "lint": "vue-cli-service lint",
-    "deployHosting": "firebase deploy --only hosting"
+    "deployHosting": "cd .. && firebase deploy --only hosting",
+    "toPublic-windows": " xcopy \"dist\\\" \"..\\Server\\src\\public\\\" /E /Y",
+    "buildToProduction-windows": "npm run build && npm run toPublic-windows"
   },
   "dependencies": {
     "axios": "^0.21.1",
