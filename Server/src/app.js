@@ -17,6 +17,9 @@ app.use(express.urlencoded({
 app.use(cors(function (req, callback) {
   var corsOptions;
   let allowlist = ['https://websocketscamasuti.firebaseapp.com', 'https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com']
+  if (process.env.NODE_ENV != 'production') {
+    allowlist.push(...['http://localhost:8080', 'http://localhost:1605'])
+  }
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
   } else {
