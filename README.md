@@ -3,19 +3,16 @@
 ## Asignatura: Sistemas Distribuidos
 
 ## Tutores:
+
 -	Prof. Ing. Fernando Mancía.
 -	Prof. Ing. Juan M. Ferreira.
 
-
 ## Alumnos:
+
 -	Ivan Weiss Van Der Pol
 -	Guillermo José Paiva Galeano
 -	Arturo Gabriel Jara Eichenbrenner
 -	Alejandro Alexander Notario Candia
-
-
-
-
 
 # WebSockets
 
@@ -57,32 +54,41 @@ El handshake se denomina al proceso de establecer la conexión usando el protoco
 ```
 
 Esta solicitud de upgrade a una conexión WebSocket es respondida por el servidor que maneja dicho protocolo como:
+
 ```
-       	HTTP/1.1 101 Switching Protocols
-       	Upgrade: websocket
-       	Connection: Upgrade
-       	Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
-		Sec-WebSocket-Protocol: superchat
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
+Sec-WebSocket-Protocol: superchat
 ```
+
 Este proceso de establecer una conexión anteriormente descrita se conoce como handshake.
 
 ## **Ventajas**
+
 El uso tradicional de las conexiones HTTP tiene el inconveniente de que el cliente siempre carga la página HTML entera. Para resolver el problema, se desarrolló la tecnología AJAX. Esta tenía, por su parte, la desventaja de establecer conexiones unidireccionales, es decir, que solo permiten la comunicación en una dirección, lo cual daría lugar a largos tiempos de espera en las intensivas aplicaciones de hoy en día, especialmente en los chats. 
 WebSocket, en cambio, crea conexiones bidireccionales que permiten el intercambio de datos en ambos sentidos, lo cual hace posible el contacto directo con el navegador y, con ello, permite **cortos periodos de carga**: en cuanto se envía un mensaje, como podría ser uno en un chat de soporte técnico, este llega y se muestra directamente al otro lado.
 
 ## **Cuando Utilizar WebSockets**
+
 - Aplicaciones web de tiempo real: Las aplicaciones web de tiempo real usan WebSockets para mostrar el dato en el extremo cliente, el cual está continuamente siendo enviada al servidor del backend. En WebSockets, los datos son continuamente empujadas/transmitidas en la misma conexión ya abierta, por este motivo es rápido y mejora el rendimiento y desempeño de la aplicación.
 Por ejemplo, en un sitio web de trading o de bitcoin trading, los cuales se encuentran cambiando constantemente, para mostrar la fluctuación de precio y para la transferencia de datos continuos del servidor de datos continuos al extremo cliente mediante el canal WebSocket.
 - Aplicaciones de juegos: En una aplicación de juegos, el enfoque se centra en los datos continuamente siendo recibidos por el server sin recargar la UI, tendrá efecto en la visualización. La UI consigue automáticamente recargar sin necesitar una nueva conexión, lo cual es muy importante una aplicación de videojuegos.
 - Aplicaciones de Chat: Una aplicación de chat que usa WebSockets establecerá la conexión una única vez para el intercambio, publicación o la difusión de los mensajes entre los participantes. Se rehúsa la misma conexión WebSocket, tanto para enviar como para recibir mensajes y para intercambios entre pares. 
 
 ## **¿Qué es Socket.IO?**
+
 Socket.IO es una librería que permite la comunicación en tiempo real, bidireccional y basado en eventos entre el navegador y el servidor. Consiste de:
+
 - Un servidor Node.js.
 - Una librería cliente JavaScript para el navegador (el cuál puede también ejecutarse con Node.js).
 El canal bidireccional entre el servidor Node.js y el cliente Socket.io (navegador, Node.js, o algún otro lenguaje de programación) es establecido con una conexión WebSocket, y usará el sondeo HTTP como alternativa.
+
 Socket.IO enmascara y nos abstrae de los procedimientos básicos del protocolo WebSocket, facilitando el desarrollo de la aplicación web responsiva. Permite al desarrollador enfocarse en los niveles superiores de la estructura y diseño de una web.
+
 ## **¿Cómo funciona?**
+
 Tenemos en el extremo servidor las operaciones emitidas por el websocket, en un switch para cada operación válida:
 
 ![case 1_socketio](https://drive.google.com/uc?export=view&id=1F846KIr9HuBONu0kZN938PQyy_jcBNRE)
@@ -96,7 +102,8 @@ Las respuestas que se obtiene luego de verificar la base de datos se envían a S
 Esta función mostrada es de la primera función requerida, ver estado de una cama. El proceso de generar la respuesta del server y enviarla, es análogo para las demás funciones WebSocket.
 
 ## **¿Cómo funciona el sitio web?**
-Accediendo a la dirección https://websocketscamasuti.web.app, (o https://camasuti.herokuapp.com ), podemos ver la lista de hospitales y comenzar a interactuar registrando, ocupando, desocupando, listando y viendo el estado de las camas UTI disponibles.
+
+Accediendo a la dirección [enlace 2](https://websocketscamasuti.web.app), [enlace 2](https://camasuti.herokuapp.com), podemos ver la lista de hospitales y comenzar a interactuar registrando, ocupando, desocupando, listando y viendo el estado de las camas UTI disponibles.
 La página presenta las siguientes pantallas:
 
 ### **1. Pantalla de Inicio**
@@ -106,8 +113,9 @@ La página presenta las siguientes pantallas:
 Se presenta la Lista de Hospitales, mostrando los datos de cada hospital y la opción de obtener los datos específicos de cada hospital, además de permitir modificar o actualizar los datos (en Ver Hospital). También se puede acceder al listado general del estado de todas las camas, diferenciando entre hospitales (en Ver Estado).
 
 ### **2. Listado de Hospitales (en Ver Estado)**
+
 Podemos acceder a la lista de camas en cada hospital. El punto parpadeante indica el estado de cada cama. Rojo es desocupado y verde como ocupado.
-En este ejemplo, tenemos el hospital 1, 
+En este ejemplo, tenemos el hospital 1,
 
 ![Lista de Hospitales, item 1.1](https://drive.google.com/uc?export=view&id=1i-pZbBHKaxEM45DnNEjIczdH3oNrilhk)
 
@@ -115,6 +123,7 @@ En este ejemplo, tenemos el hospital 1,
 ![Lista de Hospitales, item 1.2](https://drive.google.com/uc?export=view&id=1Z3cviNRruIwvCPTBZ7mvZxHyoU0nLwWY)
 
 ### **3. Editar datos en cada hospital (en Ver Hospital)**
+
 Si accedemos a la opción Ver Hospital, en la pantalla de inicio (ítem 1), se despliega una lista de las camas en el respectivo hospital, además de un chart representando las estadísticas en tiempo real de el nivel de ocupación de las camas.
 
 ![Editar datos en cada hospital, item 3](https://drive.google.com/uc?export=view&id=1PHFSP63rM9z-6GdJuA1NfgjiseacXvjr)
@@ -130,6 +139,7 @@ Continuando de la pantalla 4, podemos agregar una nueva cama.
 Se guardan los cambios y se muestra el estado actualizado del hospital en la pantalla del ítem 3.
 
 ### **5. Modificar el estado de una cama**
+
 En Ver Cama, de la pantalla del ítem 3, se puede modificar el estado de una cama.
 
 ![Modificar el estado de una cama, item 5.1](https://drive.google.com/uc?export=view&id=13P5qLSKTjsYPog7YyQvUaeqcx4TKKacJ)
@@ -141,6 +151,7 @@ Si intentamos desocupar una cama ya desocupada, nos muestra un mensaje de error:
 ![Modificar el estado de una cama, item 5.2](https://drive.google.com/uc?export=view&id=155mtj8ufwZgCYbe3zPPMFSOe0UMcGNti)
 
 ### **6. Eliminar una cama**
+
 Con la opción de Eliminar Cama, en la pantalla del ítem 5, podemos eliminar una cama del sistema.
 
 ![Eliminar una cama, item 6.1](https://drive.google.com/uc?export=view&id=1NtwNvRK8pAjeDCEyz5D_FKFXbo3bK8nI)
@@ -150,14 +161,14 @@ Si la cama se encuentra actualmente ocupada, entonces nos muestra el siguiente m
 
 ![Eliminar una cama, item 6.2](https://drive.google.com/uc?export=view&id=1SKgoEtWilZ31XD05ZxIehtZZP4a74DJc)
 
-Y no se elimina la cama. 
+Y no se elimina la cama.
 
 ## **Bibliografía**
 
-•	Ian Fette, Alexey Melnikov. The WebSocket Protocol.  IETF. Recuperado el 24 de agosto de 2021. https://datatracker.ietf.org/doc/html/rfc6455
+•	Ian Fette, Alexey Melnikov. The WebSocket Protocol.  IETF. Recuperado el 24 de agosto de 2021. [The WebSocket Protocol](https://datatracker.ietf.org/doc/html/rfc6455)
 
-•	Digital Guide, IONOS (07 de agosto de 2020). ¿Qué es WebSocket? IONOS. Recuperado el 25 de agosto de 2021. https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/que-es-websocket/
+•	Digital Guide, IONOS (07 de agosto de 2020). ¿Qué es WebSocket? IONOS. Recuperado el 25 de agosto de 2021. [Digital Guide](https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/que-es-websocket/)
 
-•	Arpit Asati (actualizado el 27 de junio de 2021). What is web socket and how it is different from the HTTP. Recuperado el 24 de agosto de 2021. https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/
+•	Arpit Asati (actualizado el 27 de junio de 2021). What is web socket and how it is different from the HTTP. Recuperado el 24 de agosto de 2021.  [What is web socket and how it is different from the HTTP](https://www.geeksforgeeks.org/what-is-web-socket-and-how-it-is-different-from-the-http/)
 
-•	Nikhil. How to Implement WebSocket Server with Node.js. Mind Bowser. https://www.mindbowser.com/websockets-with-node-js/
+•	Nikhil. How to Implement WebSocket Server with Node.js. Mind Bowser. [How to Implement WebSocket Server with Node.js. Mind Bowser.](https://www.mindbowser.com/websockets-with-node-js/)
