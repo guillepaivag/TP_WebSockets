@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint",
     "deployHosting": "cd .. && firebase deploy --only hosting",
     "toPublic-windows": " xcopy \"dist\\\" \"..\\Server\\src\\public\\\" /E /Y",
-    "buildToProduction-windows": "npm run build && npm run toPublic-windows"
+    "toPublic-linux": "mkdir -p ../Server/src/public && rm -rf ../Server/src/public/ && mkdir -p ../Server/src/public && cp -r dist/* ../Server/src/public",
+    "buildToProduction-windows": "npm run build && npm run toPublic-windows",
+    "buildToProduction-linux": "npm run build && npm run toPublic-linux"
   },
   "dependencies": {
     "axios": "^0.21.1",

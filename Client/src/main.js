@@ -17,7 +17,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
-const stringServer = process.env.NODE_ENV === 'production' ? 'https://camasuti.herokuapp.com' : 'http://localhost:1605'
+const stringServer = process.env.NODE_ENV === 'production' ? 'https://camasuti.herokuapp.com' : 'http://localhost:8090'
 
 axios.defaults.baseURL = `${stringServer}/api`
 
