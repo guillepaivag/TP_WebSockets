@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.a4966fb77f0478463b645bc50484834a.js"
+  "/precache-manifest.152c238f4caf9df06b47183381338490.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "camas-uti"});
