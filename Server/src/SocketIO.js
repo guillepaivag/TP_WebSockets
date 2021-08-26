@@ -32,7 +32,17 @@ io.on('connection', async function (socket) {
         bienvenido: '¡Bienvenido al mejor server del planeta! <3'
     })
 
-    // Operaciones solicitadas
+    // Operaciones solicitadas, de acuerdo a especificaciones del trabajo.
+    /*Lista de operaciones en server: 
+     - Op 1 (ver_estado): Se ve el estado de las todas las camas, disponible u ocupado.
+     - Op 2 (crear_cama): Crea una cama en el hospital seleccionado.
+     - Op 3 (eliminar_cama): Elimina una cama del hospital seleccionado.
+     - Op 4 (ocupar_cama): Ocupa la cama seleccionada.
+     - Op 5 (desocupar_cama): Desocupa la cama seleccionada.
+     - Op 6 (lista_hospitales): Muestra la lista de hospitales.
+     - Op 7 (lista_camas): Muestra la lista de camas por hospital.
+     - Op 8 (datos_uti): Datos del hospital para mostrar en tiempo real.
+     - Otros: Respuesta -1 para transaccion indeterminada.*/
 
     socket.on('operacion', async ( data ) => {
         
