@@ -104,8 +104,6 @@ export default {
         responseServer_verEstado: function (data) {
             console.log('responseServer_verEstado: ', data)
             const { respuesta } = data
-            
-            console.log('respuesta', respuesta)
 
             this.contructorDeEstado_listaIdHospitales(respuesta)
             this.contructorDeEstado_listaDatosHospitalCamas(respuesta)
