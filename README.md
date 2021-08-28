@@ -9,10 +9,11 @@
 
 ## Alumnos:
 
--	Ivan Weiss Van Der Pol
--	Guillermo José Paiva Galeano
--	Arturo Gabriel Jara Eichenbrenner
--	Alejandro Alexander Notario Candia
+- Ivan Weiss Van Der Pol
+- Guillermo José Paiva Galeano
+- Arturo Gabriel Jara Eichenbrenner
+- Alejandro Alexander Notario Candia
+- Cristian Daniel Ortellado Fernandez
 
 ## **Requrimientos de Instalacion**
 - Vue CLI
