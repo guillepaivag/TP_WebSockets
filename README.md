@@ -14,9 +14,43 @@
 -	Arturo Gabriel Jara Eichenbrenner
 -	Alejandro Alexander Notario Candia
 
+## **Requrimientos de Instalacion**
+- Vue CLI
+- Node.js & NPM
+- Firebase CLI
+
+## **Comandos-Cliente**
+
+- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
+
+- Comando “npm run serve” para correr el cliente en modo desarrollo.
+
+- Comando “npm run build” para construir el cliente en modo producción.
+
+- Comando “npm run deployHosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
+
+- Comando (en el directorio raíz (TP_WebSockets)) “firebase deploy --only hosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
+
+- Comando “npm run toPublic-windows” sirve para copiar los archivos del directorio dist del cliente al directorio público del servidor (Server/src/public) con comandos de Windows.
+
+- Comando “npm run toPublic- linux” sirve para copiar los archivos del directorio dist del cliente (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
+
+- Comando “npm run buildToProduction-windows” es una mezcla del comando “npm run build” y “toPublic-windows” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Windows.
+
+- Comando “npm run buildToProduction- linux” es una mezcla del comando “npm run build” y “toPublic- linux” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
+
+## **Comandos-Servidor**
+
+- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
+
+- Comando “npm run dev” para correr el servidor en modo desarrollo.
+
+- Comando “npm start” para correr el servidor en modo producción, usando Heroku para alojar el servidor, Heroku ya ejecuta ese primer y único comando para que pueda ser utilizado en producción.
+
+
 # WebSockets
 
-## Preliminares
+## **Preliminares**
 
 Anteriormente, crear una aplicación web que necesite una comunicación bidireccional entre el cliente y el servidor (por ejemplo, mensajería instantánea y aplicaciones de juegos) ha requerido de un abuso de HTTP para sondear el server por actualizaciones mientras se envían notificaciones en flujo hacia el servidor como diferentes llamadas HTTP.
 
