@@ -35,7 +35,7 @@ Se puede acceder al trabajo, ya en producción, a través de los siguientes enla
 4. [Como ejecutar los clientes](https://github.com/guillepaivag1605/TP_WebSockets#como-ejecutar-los-clientes)
 5. [Servicios ofrecidos](https://github.com/guillepaivag1605/TP_WebSockets#servicios-ofrecidos)
    - [Interacción cliente-servidor](https://github.com/guillepaivag1605/TP_WebSockets#interacci%C3%B3n-cliente-servidor)
-   - [Como funciona el sitio Web](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona-el-sitio-web)
+   - [¿Como funciona el sitio Web?](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona-el-sitio-web)
      - [1. Pantalla de Inicio](https://github.com/guillepaivag1605/TP_WebSockets#1-pantalla-de-inicio)
      - [2. Listado de Hospitales (en Ver Estado)](https://github.com/guillepaivag1605/TP_WebSockets#2-listado-de-hospitales-en-ver-estado)
      - [3. Editar datos en cada hopital (en Ver Hospital)](https://github.com/guillepaivag1605/TP_WebSockets#3-editar-datos-en-cada-hospital-en-ver-hospital)
