@@ -120,7 +120,7 @@ Socket.IO es una librería que permite la comunicación en tiempo real, bidirecc
 - Una librería cliente JavaScript para el navegador (el cuál puede también ejecutarse con Node.js).
 El canal bidireccional entre el servidor Node.js y el cliente Socket.io (navegador, Node.js, o algún otro lenguaje de programación) es establecido con una conexión WebSocket, y usará el sondeo HTTP como alternativa.
 
-Socket.IO enmascara y nos abstrae de los procedimientos básicos del protocolo WebSocket, facilitando el desarrollo de la aplicación web responsiva. Permite al desarrollador enfocarse en los niveles superiores de la estructura y diseño de una web.
+Socket.IO enmascara y nos abstrae de los procedimientos básicos del protocolo WebSocket, facilitando el desarrollo de la aplicación web responsiva. Permite al desarrollador enfocarse en los niveles superiores de la estructura y diseño de una web. No necesitamos iniciar el *handshake* ni cerrar la conexión entre cliente servidor, porque se efectúan con esta herramienta sin necesitar que el desarrollador los realice de manera explícita.
 
 ## **¿Cómo funciona?**
 
@@ -135,6 +135,17 @@ Para las funciones de WebSockets que son llamadas en el archivo anterior, genera
 
 Las respuestas que se obtiene luego de verificar la base de datos se envían a Socket.io para luego ser actualizada en el extremo cliente, en tiempo real.
 Esta función mostrada es de la primera función requerida, ver estado de una cama. El proceso de generar la respuesta del server y enviarla, es análogo para las demás funciones WebSocket.
+
+Desde el lado cliente se utiliza le modulo socket.io-client, donde en su archivo main.js importamos y utilizamos como función. Como primer parámetro del socket.io-client al que llamamos SocketIOClient, tenemos la url del servidos y como segundo parámetro ```opciones```, en las que se configura el socket cliente una vez llamada la funcion SocketIOClient.
+
+![ítem agregado, ítem 0](https://drive.google.com/uc?export=view&id=1U09nI98yBTdlwk79_1t10W6GLWtZxcZ9)
+
+Con la imagen anterior, se puede ejemplificar parte del proceso. Cuando se llama a la vista "estado", se ejecuta la llamada ```created()```, y este llama a la operación del tipo 1.
+
+Entonces, el servidor ejecuta la operación del mismo tipo (en este caso, del tipo 1), que se encuentra en el Switch-case principal del lado servidor (primera imagen), el cual llama a la función ```ver_estado()```, cuyo objetivo es brindar los datos de estado de los hospitales.
+
+Ya manejando el servidor, si no hay errores en la comunicación, llama a ```responseServer_verEstado'``` (segunda imagen) que extrae los datos de hospitales de la base de datos.
+Por último, el cliente ejecuta el evento iniciado y los datos se visualizan.
 
 ## **¿Cómo funciona el sitio web?**
 
