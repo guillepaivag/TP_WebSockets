@@ -95,7 +95,7 @@ En las conexiones bidireccionales, como las que crea WebSocket, se intercambian 
 
 El protocolo WebSocket es diseñado para reemplazar la comunicación de tecnologías bidireccionales que usan HTTP como una capa de transporte beneficiándose de la infraestructura existente (proxis, autenticación, etc.). Tales tecnologías fueron implementadas como concesiones entre eficiencia y confiabilidad porque HTTP no fue originalmente pensado para su uso bidireccional.
 
-WebSocket, siendo un protocolo full-dúplex usado en el mismo escenario de comunicación cliente-servidor como HTTP, a diferencia de este inicia con ws:// o wss://. Es un protocolo de estado, lo cual significa que la conexión entre cliente y servidor se mantiene operática hasta que es finalizada por una de las partes involucradas (cliente o servidor). Luego de cerrada la conexión, la conexión es finalizada para ambos extremos de la comunicación.
+WebSocket, siendo un protocolo full-dúplex usado en el mismo escenario de comunicación cliente-servidor como HTTP, a diferencia de este inicia con ws:// o wss://. Es un protocolo de estado, lo cual significa que la conexión entre cliente y servidor se mantiene operativa hasta que es finalizada por una de las partes involucradas (cliente o servidor). Luego de cerrada la conexión, la conexión es finalizada para ambos extremos de la comunicación.
 
 ## **¿Qué es el handshake?**
 
