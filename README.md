@@ -15,63 +15,34 @@
 - Alejandro Alexander Notario Candia
 - Cristian Daniel Ortellado Fernandez
 
-## Contenido
+## Sitio Web Cliente: 
 
-1. [Requerimientos de Instalación](https://github.com/guillepaivag1605/TP_WebSockets#requerimientos-de-instalacion)
-2. [Comandos-Cliente](https://github.com/guillepaivag1605/TP_WebSockets#comandos-cliente)
-3. [Comandos-Servidor](https://github.com/guillepaivag1605/TP_WebSockets#comandos-servidor)
-4. [WebSockets](https://github.com/guillepaivag1605/TP_WebSockets#websockets)
+Se puede acceder al trabajo, ya en producción, a través de los siguientes enlaces:
+- [enlace 1](https://websocketscamasuti.web.app)
+- [enlace 2](https://camasuti.herokuapp.com)
+
+# Contenido
+
+1. [WebSockets](https://github.com/guillepaivag1605/TP_WebSockets#websockets)
    - [Preliminares](https://github.com/guillepaivag1605/TP_WebSockets#preliminares)
    - [¿Qué es WebSocket?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-websocket)
    - [¿Qué es el handshake?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-el-handshake)
    - [Ventajas](https://github.com/guillepaivag1605/TP_WebSockets#ventajas)
    - [Cuando utilizar WebSockets](https://github.com/guillepaivag1605/TP_WebSockets#cuando-utilizar-websockets)
-5. [¿Qué es Socket.io?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-socketio)
-   - [¿Cómo funciona?](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona)
-6. [¿Cómo funciona el sitio web?](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona-el-sitio-web)
-   - [Pantalla de Inicio](https://github.com/guillepaivag1605/TP_WebSockets#1-pantalla-de-inicio)
-   - [Listado de Hospitales (en Ver Estado)](https://github.com/guillepaivag1605/TP_WebSockets#2-listado-de-hospitales-en-ver-estado)
-   - [Editar datos en cada hopital (en Ver Hospital)](https://github.com/guillepaivag1605/TP_WebSockets#3-editar-datos-en-cada-hospital-en-ver-hospital)
-   - [Agregar una cama](https://github.com/guillepaivag1605/TP_WebSockets#4-agregar-una-cama)
-   - [Modificar el estado de una cama](https://github.com/guillepaivag1605/TP_WebSockets#5-modificar-el-estado-de-una-cama)
-   - [Eliminar una cama](https://github.com/guillepaivag1605/TP_WebSockets#6-eliminar-una-cama)
+   - [¿Qué es Socket.io?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-socketio)
+2. [Requerimientos de Instalación](https://github.com/guillepaivag1605/TP_WebSockets#requerimientos-de-instalacion)
+3. [Como ejecutar los componentes del servidor](https://github.com/guillepaivag1605/TP_WebSockets#comandos-cliente)
+4. [Como ejecutar los clientes](https://github.com/guillepaivag1605/TP_WebSockets#comandos-servidor)
+5. [Servicios ofrecidos](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona)
+   - [Interacción cliente-servidor]()
+   - [Sitio Web](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona-el-sitio-web)
+     - [Pantalla de Inicio](https://github.com/guillepaivag1605/TP_WebSockets#1-pantalla-de-inicio)
+     - [Listado de Hospitales (en Ver Estado)](https://github.com/guillepaivag1605/TP_WebSockets#2-listado-de-hospitales-en-ver-estado)
+     - [Editar datos en cada hopital (en Ver Hospital)](https://github.com/guillepaivag1605/TP_WebSockets#3-editar-datos-en-cada-hospital-en-ver-hospital)
+     - [Agregar una cama](https://github.com/guillepaivag1605/TP_WebSockets#4-agregar-una-cama)
+     - [Modificar el estado de una cama](https://github.com/guillepaivag1605/TP_WebSockets#5-modificar-el-estado-de-una-cama)
+     - [Eliminar una cama](https://github.com/guillepaivag1605/TP_WebSockets#6-eliminar-una-cama)
 7. [Bibliografía](https://github.com/guillepaivag1605/TP_WebSockets#bibliograf%C3%ADa)
-
-
-
-## **Requerimientos de Instalacion**
-- Vue CLI
-- Node.js & NPM
-- Firebase CLI
-
-## **Comandos-Cliente**
-
-- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
-
-- Comando “npm run serve” para correr el cliente en modo desarrollo.
-
-- Comando “npm run build” para construir el cliente en modo producción.
-
-- Comando “npm run deployHosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
-
-- Comando (en el directorio Cliente (Client)) “firebase deploy --only hosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
-
-- Comando “npm run toPublic-windows” sirve para copiar los archivos del directorio dist del cliente al directorio público del servidor (Server/src/public) con comandos de Windows.
-
-- Comando “npm run toPublic- linux” sirve para copiar los archivos del directorio dist del cliente (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
-
-- Comando “npm run buildToProduction-windows” es una mezcla del comando “npm run build” y “toPublic-windows” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Windows.
-
-- Comando “npm run buildToProduction- linux” es una mezcla del comando “npm run build” y “toPublic- linux” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
-
-## **Comandos-Servidor**
-
-- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
-
-- Comando “npm run dev” para correr el servidor en modo desarrollo.
-
-- Comando “npm start” para correr el servidor en modo producción, usando Heroku para alojar el servidor, Heroku ya ejecuta ese primer y único comando para que pueda ser utilizado en producción.
-
 
 # WebSockets
 
@@ -146,7 +117,43 @@ El canal bidireccional entre el servidor Node.js y el cliente Socket.io (navegad
 
 Socket.IO enmascara y nos abstrae de los procedimientos básicos del protocolo WebSocket, facilitando el desarrollo de la aplicación web responsiva. Permite al desarrollador enfocarse en los niveles superiores de la estructura y diseño de una web. No necesitamos iniciar el *handshake* ni cerrar la conexión entre cliente servidor, porque se efectúan con esta herramienta sin necesitar que el desarrollador los realice de manera explícita.
 
-## **¿Cómo funciona?**
+## **Requerimientos de Instalacion**
+- Vue CLI
+- Node.js & NPM
+- Firebase CLI
+
+
+## **Como ejecutar los componentes del servidor**
+
+- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
+
+- Comando “npm run dev” para correr el servidor en modo desarrollo.
+
+- Comando “npm start” para correr el servidor en modo producción, usando Heroku para alojar el servidor, Heroku ya ejecuta ese primer y único comando para que pueda ser utilizado en producción.
+
+## **Como ejecutar los clientes**
+
+- Realizar el comando “npm i” o “npm install” para instalar los módulos necesarios (módulos a instalar en package.json).
+
+- Comando “npm run serve” para correr el cliente en modo desarrollo.
+
+- Comando “npm run build” para construir el cliente en modo producción.
+
+- Comando “npm run deployHosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
+
+- Comando (en el directorio Cliente (Client)) “firebase deploy --only hosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
+
+- Comando “npm run toPublic-windows” sirve para copiar los archivos del directorio dist del cliente al directorio público del servidor (Server/src/public) con comandos de Windows.
+
+- Comando “npm run toPublic- linux” sirve para copiar los archivos del directorio dist del cliente (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
+
+- Comando “npm run buildToProduction-windows” es una mezcla del comando “npm run build” y “toPublic-windows” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Windows.
+
+- Comando “npm run buildToProduction- linux” es una mezcla del comando “npm run build” y “toPublic- linux” que sirve para construir el cliente en producción y copiar los archivos del directorio dist (Client/dist) al directorio público del servidor (Server/src/public) con comandos de Linux.
+
+## **Servicios ofrecidos**
+
+## **Interacción cliente-servidor**
 
 Tenemos en el extremo servidor las operaciones emitidas por el websocket, en un switch para cada operación válida:
 
