@@ -153,14 +153,16 @@ Tenemos en el extremo servidor las operaciones emitidas por el websocket, en un 
 ![case 1_socketio](https://drive.google.com/uc?export=view&id=1F846KIr9HuBONu0kZN938PQyy_jcBNRE)
 
 El emit de las otras operaciones se realiza de manera análoga y se puede observar en el código fuente del proyecto Server (TP_WebSockets/Server/src/Socket.io).
-Para las funciones de WebSockets que son llamadas en el archivo anterior, generando una respuesta por parte del servidor, tenemos:
+Para las funciones de WebSockets que son llamadas en el archivo anterior (de forma desestructurada), generando una respuesta por parte del servidor, tenemos:
 
 ![case 1_websocketio](https://drive.google.com/uc?export=view&id=1ISD8CXIKzCXUuDCekuqQr2haMGvvD-zl)
 
 Las respuestas que se obtiene luego de verificar la base de datos se envían a Socket.io para luego ser actualizada en el extremo cliente, en tiempo real.
 Esta función mostrada es de la primera función requerida, ver estado de una cama. El proceso de generar la respuesta del server y enviarla, es análogo para las demás funciones WebSocket.
 
-Desde el lado cliente se utiliza le modulo socket.io-client, donde en su archivo main.js importamos y utilizamos como función. Como primer parámetro del socket.io-client al que llamamos SocketIOClient, tenemos la url del servidos y como segundo parámetro ```opciones```, en las que se configura el socket cliente una vez llamada la funcion SocketIOClient.
+![case main.js](https://drive.google.com/uc?export=view&id=16tOeQVliFstmpK1sAVCPIEIfphrw7Kto)
+
+Desde el lado cliente se utiliza le modulo socket.io-client, donde en su archivo main.js (imagen de arriba) importamos y utilizamos como función. Como primer parámetro del socket.io-client al que llamamos SocketIOClient, tenemos la url del servidos y como segundo parámetro ```opciones```, en las que se configura el socket cliente una vez llamada la funcion SocketIOClient.
 
 ![ítem agregado, ítem 0](https://drive.google.com/uc?export=view&id=1U09nI98yBTdlwk79_1t10W6GLWtZxcZ9)
 
@@ -173,7 +175,7 @@ Por último, el cliente ejecuta el evento iniciado y los datos se visualizan.
 
 ## **¿Cómo funciona el sitio web?**
 
-Accediendo a la dirección [enlace 2](https://websocketscamasuti.web.app), [enlace 2](https://camasuti.herokuapp.com), podemos ver la lista de hospitales y comenzar a interactuar registrando, ocupando, desocupando, listando y viendo el estado de las camas UTI disponibles.
+Accediendo a la dirección [enlace 1](https://websocketscamasuti.web.app), [enlace 2](https://camasuti.herokuapp.com), podemos ver la lista de hospitales y comenzar a interactuar registrando, ocupando, desocupando, listando y viendo el estado de las camas UTI disponibles.
 La página presenta las siguientes pantallas:
 
 ### **1. Pantalla de Inicio**
