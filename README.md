@@ -15,7 +15,7 @@
 - Alejandro Alexander Notario Candia
 - Cristian Daniel Ortellado Fernandez
 
-## **Requrimientos de Instalacion**
+## **Requerimientos de Instalacion**
 - Vue CLI
 - Node.js & NPM
 - Firebase CLI
