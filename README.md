@@ -15,6 +15,30 @@
 - Alejandro Alexander Notario Candia
 - Cristian Daniel Ortellado Fernandez
 
+## Contenido
+
+1. [Requerimientos de Instalación](https://github.com/guillepaivag1605/TP_WebSockets#requerimientos-de-instalacion)
+2. [Comandos-Cliente](https://github.com/guillepaivag1605/TP_WebSockets#comandos-cliente)
+3. [Comandos-Servidor](https://github.com/guillepaivag1605/TP_WebSockets#comandos-servidor)
+4. [WebSockets](https://github.com/guillepaivag1605/TP_WebSockets#websockets)
+   - [Preliminares](https://github.com/guillepaivag1605/TP_WebSockets#preliminares)
+   - [¿Qué es WebSocket?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-websocket)
+   - [¿Qué es el handshake?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-el-handshake)
+   - [Ventajas](https://github.com/guillepaivag1605/TP_WebSockets#ventajas)
+   - [Cuando utilizar WebSockets](https://github.com/guillepaivag1605/TP_WebSockets#cuando-utilizar-websockets)
+5. [¿Qué es Socket.io?](https://github.com/guillepaivag1605/TP_WebSockets#qu%C3%A9-es-socketio)
+   - [¿Cómo funciona?](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona)
+6. [¿Cómo funciona el sitio web?](https://github.com/guillepaivag1605/TP_WebSockets#c%C3%B3mo-funciona-el-sitio-web)
+   - [Pantalla de Inicio](https://github.com/guillepaivag1605/TP_WebSockets#1-pantalla-de-inicio)
+   - [Listado de Hospitales (en Ver Estado)](https://github.com/guillepaivag1605/TP_WebSockets#2-listado-de-hospitales-en-ver-estado)
+   - [Editar datos en cada hopital (en Ver Hospital)](https://github.com/guillepaivag1605/TP_WebSockets#3-editar-datos-en-cada-hospital-en-ver-hospital)
+   - [Agregar una cama](https://github.com/guillepaivag1605/TP_WebSockets#4-agregar-una-cama)
+   - [Modificar el estado de una cama](https://github.com/guillepaivag1605/TP_WebSockets#5-modificar-el-estado-de-una-cama)
+   - [Eliminar una cama](https://github.com/guillepaivag1605/TP_WebSockets#6-eliminar-una-cama)
+7. [Bibliografía](https://github.com/guillepaivag1605/TP_WebSockets#bibliograf%C3%ADa)
+
+
+
 ## **Requerimientos de Instalacion**
 - Vue CLI
 - Node.js & NPM
