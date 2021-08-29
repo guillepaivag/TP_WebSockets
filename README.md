@@ -54,7 +54,7 @@
 
 - Comando “npm run deployHosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
 
-- Comando (en el directorio raíz (TP_WebSockets)) “firebase deploy --only hosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
+- Comando (en el directorio Cliente (Client)) “firebase deploy --only hosting” para subir el cliente en el hosting de Firebase (Firebase Hosting).
 
 - Comando “npm run toPublic-windows” sirve para copiar los archivos del directorio dist del cliente al directorio público del servidor (Server/src/public) con comandos de Windows.
 

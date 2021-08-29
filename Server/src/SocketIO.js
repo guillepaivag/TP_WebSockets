@@ -55,6 +55,7 @@ io.on('connection', async function (socket) {
         
         try {
             let response
+            let estado
             socket.emit('bienvenido', {
                 bienvenido: `Bienvenido ${data.id}`
             })
@@ -77,6 +78,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaCreada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 3:
@@ -86,6 +90,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaEliminada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 4:
@@ -95,6 +102,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaOcupada', response)
+                    
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 5:
@@ -104,6 +114,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaDesocupada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 6: 

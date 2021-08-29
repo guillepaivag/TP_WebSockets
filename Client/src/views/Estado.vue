@@ -57,6 +57,8 @@ export default {
     },
     methods: {
         contructorDeEstado_listaIdHospitales (respuesta) {
+            this.listaIdHospitales = []
+            
             for (let i = 0; i < respuesta.length; i++) {
                 const element = respuesta[i];
                 
@@ -76,6 +78,8 @@ export default {
             }
         },
         contructorDeEstado_listaDatosHospitalCamas (respuesta) {
+            this.listaDatosHospitalCamas = []
+            
             for (let i = 0; i < respuesta.length; i++) {
                 const element = respuesta[i];
                 

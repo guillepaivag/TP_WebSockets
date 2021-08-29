@@ -38,9 +38,7 @@ const VueSIO = new VueSocketIO({
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
-
 Vue.use(VueSIO)
-
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
