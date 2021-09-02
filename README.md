@@ -250,7 +250,7 @@ Si la cama se encuentra actualmente ocupada, entonces nos muestra el siguiente m
 
 ![Eliminar una cama, item 6.2](https://drive.google.com/uc?export=view&id=1SKgoEtWilZ31XD05ZxIehtZZP4a74DJc)
 
-Y no se elimina la cama.
+Y la cama no sera eliminada.
 
 ## **Bibliografía**
 
