@@ -17,6 +17,8 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+//Comentario agregado para el repositorio, Arturo Gabriel Jara Eichenbrenner
+//Pregunta 15, Primer Parcial.
 
 const stringServer = process.env.NODE_ENV === 'production' ? 'https://camasuti.herokuapp.com' : 'http://localhost:8090'
 
