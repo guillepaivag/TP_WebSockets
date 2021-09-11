@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+
+    <!-- Centro de la aplicación cliente -->
+
     <navegation />
     
     <router-view/>
