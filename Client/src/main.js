@@ -1,3 +1,4 @@
+// Ivan_weiss_van_der_pol
 import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
