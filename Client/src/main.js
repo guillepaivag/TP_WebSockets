@@ -17,15 +17,14 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-<<<<<<< HEAD
+
 // Hola mundo, soy Alejandro
-const stringServer = process.env.NODE_ENV === 'production' ? 'https://camasuti.herokuapp.com' : 'http://localhost:1605'
-=======
+
 //Comentario agregado para el repositorio, Arturo Gabriel Jara Eichenbrenner
 //Pregunta 15, Primer Parcial.
 
 const stringServer = process.env.NODE_ENV === 'production' ? 'https://camasuti.herokuapp.com' : 'http://localhost:8090'
->>>>>>> 3f012cfbb6fea62b5283f626356c1751201f5dd5
+
 
 axios.defaults.baseURL = `${stringServer}/api`
 
