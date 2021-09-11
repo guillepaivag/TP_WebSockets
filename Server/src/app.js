@@ -6,7 +6,7 @@ const path = require('path')
 const app = express()
 
 // Configuraciones
-app.set('port', process.env.PORT || 1605)
+app.set('port', process.env.PORT || 8090)
 
 app.use(express.json())
 
@@ -17,6 +17,9 @@ app.use(express.urlencoded({
 app.use(cors(function (req, callback) {
   var corsOptions;
   let allowlist = ['https://websocketscamasuti.firebaseapp.com', 'https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com']
+  if (process.env.NODE_ENV != 'production') {
+    allowlist.push(...['http://localhost:8080', 'http://localhost:8090'])
+  }
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
   } else {
@@ -39,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Routes
 
 
-// Iniciamos el servidor en su puerto correspondiente o el puerto 1605
+// Iniciamos el servidor en su puerto correspondiente o el puerto 8090
 const server = app.listen(app.get('port'), function () {
   console.log(`Servidor iniciado en http://localhost:${app.get('port')}`)
 })

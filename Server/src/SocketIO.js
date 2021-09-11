@@ -13,9 +13,13 @@ const {
 const ResponseServer = require('./model/ResponseServer')
 
 // WebSockets
+let origin = ['https://websocketscamasuti.firebaseapp.com', 'https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com']
+if (process.env.NODE_ENV != 'production') {
+    origin.push(...['http://localhost:8080', 'http://localhost:8090'])
+}
 const io = SocketIO(server, {
     cors: {
-        origin: ['https://websocketscamasuti.firebaseapp.com', 'https://websocketscamasuti.web.app', 'https://camasuti.herokuapp.com'],
+        origin,
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -28,7 +32,17 @@ io.on('connection', async function (socket) {
         bienvenido: '¡Bienvenido al mejor server del planeta! <3'
     })
 
-    // Operaciones solicitadas
+    // Operaciones solicitadas, de acuerdo a especificaciones del trabajo.
+    /*Lista de operaciones en server: 
+     - Op 1 (ver_estado): Se ve el estado de las todas las camas, disponible u ocupado.
+     - Op 2 (crear_cama): Crea una cama en el hospital seleccionado.
+     - Op 3 (eliminar_cama): Elimina una cama del hospital seleccionado.
+     - Op 4 (ocupar_cama): Ocupa la cama seleccionada.
+     - Op 5 (desocupar_cama): Desocupa la cama seleccionada.
+     - Op 6 (lista_hospitales): Muestra la lista de hospitales.
+     - Op 7 (lista_camas): Muestra la lista de camas por hospital.
+     - Op 8 (datos_uti): Datos del hospital para mostrar en tiempo real.
+     - Otros: Respuesta -1 para transaccion indeterminada.*/
 
     socket.on('operacion', async ( data ) => {
         
@@ -41,6 +55,7 @@ io.on('connection', async function (socket) {
         
         try {
             let response
+            let estado
             socket.emit('bienvenido', {
                 bienvenido: `Bienvenido ${data.id}`
             })
@@ -48,8 +63,6 @@ io.on('connection', async function (socket) {
             switch ( tipo_operacion ) {
                 case 1:              
                     response = await ver_estado()
-                    console.log('response', response)
-
                     if (response.estado != 0) {
                         socket.emit('responseServer_problemSystem', response)
                         return
@@ -65,6 +78,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaCreada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 3:
@@ -74,6 +90,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaEliminada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 4:
@@ -83,6 +102,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaOcupada', response)
+                    
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 5:
@@ -92,6 +114,9 @@ io.on('connection', async function (socket) {
                         return
                     }
                     socket.emit('responseServer_camaDesocupada', response)
+
+                    estado = await ver_estado()
+                    socket.broadcast.emit('responseServer_verEstado', estado)
                     break;
 
                 case 6: 

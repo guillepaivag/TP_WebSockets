@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.11e3db453c64ee8a5fa2a148df2919a8.js"
+  "/precache-manifest.e92f1a5d152562ababf06a763a546676.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "camas-uti"});
+workbox.core.setCacheNameDetails({prefix: "cliente_camas-uti"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
